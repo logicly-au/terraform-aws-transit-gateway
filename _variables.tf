@@ -91,8 +91,8 @@ variable "vpc_id" {
 }
 
 variable "route_table_id" {
-  # type = list(any)
-  # description = "Route Table Identifier"  
+  type        = list(any)
+  description = "Route Table Identifier"
 }
 
 variable "account_name" {
@@ -101,6 +101,6 @@ variable "account_name" {
 }
 
 variable "route" {
-  # type = list(any)
-  # description = "Destination CIDR block"   
+  type        = list(any)
+  description = "Destination CIDR block"
 }

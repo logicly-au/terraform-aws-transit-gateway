@@ -4,7 +4,7 @@ This module creates the transit gateway network resources.
 
 The following resources will be created:
  - Direct Connect Data resource
- - AWS Organizations Data resource
+ - AWS Organization Data resource
  - Direct Connect Gateway
  - Direct Connect Gateway Association   
  - Direct Connect Transit Virtual Interface
@@ -15,6 +15,7 @@ The following resources will be created:
  - Resource Access Manager (RAM) Resource Share
  - Resource Access Manager (RAM) Resource Association
  - Resource Access Manager (RAM) Principal Association
+ - SSM Security String Parameter
 
 ## Execution Diagram of `terraform-transit-gateway`
 ![](_docs/assets/TransitGateway.png)

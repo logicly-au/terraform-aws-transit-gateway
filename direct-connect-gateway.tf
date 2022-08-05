@@ -26,5 +26,5 @@ resource "aws_dx_transit_virtual_interface" "default" {
   vlan             = each.value.vlan
   address_family   = "ipv4"
   bgp_asn          = each.value.bgp_asn
-  bgp_auth_key     = each.value.bgp_auth_key
+  bgp_auth_key     = data.aws_ssm_parameter.bgp_auth_key[each.value.name].value
 }
