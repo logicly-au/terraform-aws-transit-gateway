@@ -104,3 +104,8 @@ variable "route" {
   type        = list(any)
   description = "Destination CIDR block"
 }
+
+variable "network_acl_id" {
+  type = string
+  description = "Network ACL ID"  
+}
