@@ -104,6 +104,6 @@ variable "route" {
 }
 
 variable "network_acl_id" {
-  type        = list(any)
+  type        = string
   description = "Network ACL ID"
 }
