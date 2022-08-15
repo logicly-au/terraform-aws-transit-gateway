@@ -1,6 +1,5 @@
-variable "transit_gateway" {
+variable "transit_gateway_enabled" {
   type        = bool
-  default     = false
   description = "Enable or disable Transit Gateway"
 }
 
@@ -49,7 +48,6 @@ variable "attachment" {
   default     = false
   description = "Create VPC Attachment to Transit Gateway"
 }
-
 variable "transit_gateway_default_route_table_association" {
   type        = bool
   default     = true
@@ -106,6 +104,6 @@ variable "route" {
 }
 
 variable "network_acl_id" {
-  type = string
-  description = "Network ACL ID"  
+  type        = list(any)
+  description = "Network ACL ID"
 }
