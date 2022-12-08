@@ -1,12 +1,12 @@
 resource "aws_dx_gateway" "default" {
-  count = var.attachment && var.transit_gateway_enabled ? 1 : (var.transit_gateway_enabled ? 1 : 0)
+  count = length(try(var.dx_connection, [])) > 0 ? 1 : 0
 
   name            = "${var.name}-dx-gateway"
   amazon_side_asn = var.direct_connect_gateway_asn
 }
 
 resource "aws_dx_gateway_association" "default" {
-  count = var.attachment && var.transit_gateway_enabled ? 1 : (var.transit_gateway_enabled ? 1 : 0)
+  count = var.transit_gateway_enabled && length(try(var.dx_connection, [])) > 0 ? 1 : 0
 
   dx_gateway_id         = aws_dx_gateway.default[0].id
   associated_gateway_id = aws_ec2_transit_gateway.default[0].id

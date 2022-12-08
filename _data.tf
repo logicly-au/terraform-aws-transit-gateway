@@ -18,7 +18,8 @@ data "aws_dx_connection" "default" {
 }
 
 data "aws_ec2_transit_gateway_dx_gateway_attachment" "default" {
-  count = try(var.attachment, false) ? 0 : 1
+  count = length(try(var.dx_connection, [])) > 0 ? 1 : 0
+
 
   transit_gateway_id = aws_ec2_transit_gateway.default[0].id
   dx_gateway_id      = aws_dx_gateway.default[0].id
