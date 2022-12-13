@@ -2,7 +2,7 @@ module "transit_gateway" {
   source = "git::https://github.com/DNXLabs/terraform-aws-transit-gateway.git?ref=1.0.0"
 
   name                       = local.workspace.org_name
-  account_name               = local.workspace.account_name  
+  account_name               = local.workspace.account_name
   transit_gateway_account_id = local.workspace.transit_gateway.attachment.transit_gateway_account_id
   allowed_prefixes           = try(local.workspace.transit_gateway.allowed_prefixes, [])
   dns_support                = try(local.workspace.transit_gateway.dns_support, "enable")
