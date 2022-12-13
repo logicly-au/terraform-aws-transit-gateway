@@ -41,6 +41,7 @@ resource "aws_ec2_transit_gateway_route" "blackhole" {
   count = var.transit_gateway_enabled ? 1 : 0
 
   destination_cidr_block         = "0.0.0.0/0"
-  blackhole                      = true
+  blackhole                      = length(var.public_route) > 0 ? false : true
   transit_gateway_route_table_id = aws_ec2_transit_gateway.default[0].association_default_route_table_id
+  transit_gateway_attachment_id  = length(var.public_route) > 0 ? aws_ec2_transit_gateway_vpc_attachment.default[0].id : null
 }

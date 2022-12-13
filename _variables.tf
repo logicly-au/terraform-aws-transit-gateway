@@ -88,9 +88,13 @@ variable "vpc_id" {
   description = "Identifier of EC2 VPC."
 }
 
-variable "route_table_id" {
-  type        = list(any)
-  description = "Route Table Identifier"
+variable "private_route_table_id" {
+  type        = string
+  description = "Private Route Table Identifier"
+}
+variable "public_route_table_id" {
+  type        = string
+  description = "Public Route Table Identifier"
 }
 
 variable "account_name" {
@@ -98,12 +102,20 @@ variable "account_name" {
   description = "Name of the AWS account."
 }
 
-variable "route" {
+variable "private_route" {
+  type        = list(any)
+  description = "Destination CIDR block"
+}
+variable "public_route" {
   type        = list(any)
   description = "Destination CIDR block"
 }
 
-variable "network_acl_id" {
+variable "private_network_acl_id" {
+  type        = string
+  description = "Network ACL ID"
+}
+variable "public_network_acl_id" {
   type        = string
   description = "Network ACL ID"
 }
