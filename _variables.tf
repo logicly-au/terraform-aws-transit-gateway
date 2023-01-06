@@ -92,9 +92,15 @@ variable "private_route_table_id" {
   type        = string
   description = "Private Route Table Identifier"
 }
+
 variable "public_route_table_id" {
   type        = string
   description = "Public Route Table Identifier"
+}
+
+variable "secure_route_table_id" {
+  type        = string
+  description = "Secure Route Table Identifier"
 }
 
 variable "account_name" {
@@ -104,18 +110,30 @@ variable "account_name" {
 
 variable "private_route" {
   type        = list(any)
-  description = "Destination CIDR block"
+  description = "Private Destination CIDR blocks for NACL definition"
 }
+
 variable "public_route" {
   type        = list(any)
-  description = "Destination CIDR block"
+  description = "Public Destination CIDR blocks for NACL definition"
+}
+
+variable "secure_route" {
+  type        = list(any)
+  description = "Secure Destination CIDR blocks for NACL definition"
 }
 
 variable "private_network_acl_id" {
   type        = string
-  description = "Network ACL ID"
+  description = "Private Network ACL ID"
 }
+
 variable "public_network_acl_id" {
   type        = string
-  description = "Network ACL ID"
+  description = "Public Network ACL ID"
+}
+
+variable "secure_network_acl_id" {
+  type        = string
+  description = "Secure Network ACL ID"
 }
