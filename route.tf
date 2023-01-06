@@ -18,3 +18,14 @@ resource "aws_route" "public" {
   destination_cidr_block = each.value.cidr
   transit_gateway_id     = data.aws_ec2_transit_gateway.default[0].id
 }
+
+resource "aws_route" "secure" {
+  for_each = {
+    for route in var.secure_route : route.cidr => route
+    if try(var.attachment, false) == true
+  }
+
+  route_table_id         = var.secure_route_table_id
+  destination_cidr_block = each.value.cidr
+  transit_gateway_id     = data.aws_ec2_transit_gateway.default[0].id
+}
