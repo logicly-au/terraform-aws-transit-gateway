@@ -30,4 +30,20 @@ locals {
         port = each_port
       }
   ]]))
+
+  secure_inbound_ports = distinct(flatten([
+    for each_cidr in var.secure_route : [
+      for each_port in each_cidr.nacl_inbound_tcp_ports : {
+        cidr = each_cidr.cidr
+        port = each_port
+      }
+  ]]))
+
+  secure_outbound_ports = distinct(flatten([
+    for each_cidr in var.secure_route : [
+      for each_port in each_cidr.nacl_outbound_tcp_ports : {
+        cidr = each_cidr.cidr
+        port = each_port
+      }
+  ]]))
 }
