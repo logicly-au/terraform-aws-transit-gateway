@@ -104,11 +104,16 @@ variable "account_name" {
 
 variable "private_route" {
   type        = list(any)
-  description = "Destination CIDR block"
+  description = "Private Destination CIDR blocks for NACL definition"
 }
 variable "public_route" {
   type        = list(any)
-  description = "Destination CIDR block"
+  description = "Public Destination CIDR blocks for NACL definition"
+}
+
+variable "secure_route" {
+  type        = list(any)
+  description = "Secure Destination CIDR blocks for NACL definition"
 }
 
 variable "private_network_acl_id" {
