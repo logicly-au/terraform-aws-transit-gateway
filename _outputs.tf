@@ -1,3 +1,4 @@
-output "aws_transit_gateway_id" {
-  value = aws_ec2_transit_gateway.default[0].id
+
+output "private_network_acl_id" {
+  value = aws_private_network_acl_id.id
 }
