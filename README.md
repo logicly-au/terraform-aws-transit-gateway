@@ -97,7 +97,9 @@ module "transit_gateway" {
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| aws\_transit\_gateway\_id | n/a |
 
 <!--- END_TF_DOCS --->
 
