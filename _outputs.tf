@@ -3,6 +3,41 @@ output "private_network_acl_id" {
   value = aws_private_network_acl_id.id
 }
 
+output "transit_gateway_account_id" {
+  value = aws_transit_gateway_account_id.id
+}
+
+output "allowed_prefixes" {
+  value = aws_allowed_prefixes
+}
+
+output "subnet_ids" {
+  value = subnet_ids.id
+}
+
+output "public_network_acl_id" {
+  value = public_network_acl_id.id
+}
+
+output "dx_connection" {
+  value = dx_connection.dx_connection
+}
+
+output "direct_connect_gateway_asn" {
+  value = direct_connect_gateway_asn.gateway_asn
+}
+
+output "transit_gateway_asn" {
+  value = transit_gateway_asn.transit_gateway_asn
+}
+
+output "public_route" {
+  value = public_route.public
+}
+
+output "private_route" {
+  value = private_route.private
+
 output "vpc_id" {
   value       = aws_vpc.default.id
   description = "ID for VPC created"
