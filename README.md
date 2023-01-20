@@ -99,17 +99,11 @@ module "transit_gateway" {
 
 | Name | Description |
 |------|-------------|
-| ram\_resource\_share\_id | RAM resource share ID |
-| subnet\_route\_ids | Subnet route identifiers combined with destinations |
-| transit\_gateway\_arn | Transit Gateway ARN |
-| transit\_gateway\_association\_default\_route\_table\_id | Transit Gateway association default route table ID |
-| transit\_gateway\_id | Transit Gateway ID |
-| transit\_gateway\_propagation\_default\_route\_table\_id | Transit Gateway propagation default route table ID |
-| transit\_gateway\_route\_ids | Transit Gateway route identifiers combined with destinations |
-| transit\_gateway\_route\_table | RAM resource share ID |
-| transit\_gateway\_route\_table\_id | Transit Gateway route table ID |
-| transit\_gateway\_vpc\_attachment | RAM resource share ID |
-| transit\_gateway\_vpc\_attachment\_ids | Transit Gateway VPC attachment IDs |
+| transit\_gateway\_attachment\_id | Transit Gateway route table secure ID |
+| transit\_gateway\_id | Transit Gateway Default ID |
+| transit\_gateway\_route\_table\_private\_id | Transit Gateway route table private ID |
+| transit\_gateway\_route\_table\_public\_id | Transit Gateway route table public ID |
+| transit\_gateway\_route\_table\_secure\_id | Transit Gateway route table secure ID |
 
 <!--- END_TF_DOCS --->
 
