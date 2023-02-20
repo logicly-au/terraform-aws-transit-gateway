@@ -97,7 +97,13 @@ module "transit_gateway" {
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| transit\_gateway\_attachment\_id | Transit Gateway route table secure ID |
+| transit\_gateway\_id | Transit Gateway Default ID |
+| transit\_gateway\_route\_table\_private\_id | Transit Gateway route table private ID |
+| transit\_gateway\_route\_table\_public\_id | Transit Gateway route table public ID |
+| transit\_gateway\_route\_table\_secure\_id | Transit Gateway route table secure ID |
 
 <!--- END_TF_DOCS --->
 
