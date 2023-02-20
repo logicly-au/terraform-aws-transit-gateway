@@ -99,11 +99,15 @@ module "transit_gateway" {
 
 | Name | Description |
 |------|-------------|
-| transit\_gateway\_attachment\_id | Transit Gateway route table secure ID |
-| transit\_gateway\_id | Transit Gateway Default ID |
-| transit\_gateway\_route\_table\_private\_id | Transit Gateway route table private ID |
-| transit\_gateway\_route\_table\_public\_id | Transit Gateway route table public ID |
-| transit\_gateway\_route\_table\_secure\_id | Transit Gateway route table secure ID |
+| private\_nacls | n/a |
+| public\_nacls | n/a |
+| secure\_nacls | n/a |
+| transit\_attachment\_account\_owner\_id | Transit Gateway attachment AWS Account owner |
+| transit\_attachment\_id | Transit Gateway attachment |
+| transit\_gateway\_account\_owner\_id | Transit Gateway AWS account ID owner |
+| transit\_gateway\_cidr\_blocks | Transit Gateway CIDR blocks |
+| transit\_gateway\_default\_route\_table\_id | Transit Gateway route table id default |
+| transit\_gateway\_id | Transit Gateway ID |
 
 <!--- END_TF_DOCS --->
 
