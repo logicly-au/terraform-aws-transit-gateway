@@ -49,7 +49,61 @@ module "transit_gateway" {
 
 <!--- BEGIN_TF_DOCS --->
 
-Error: Argument or block definition required: An argument or block definition is required here.
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.0 |
+| aws | >= 3.56.0 |
+| random | >= 2.1.0 |
+| tls | >= 3.1.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | >= 3.56.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| account\_name | Name of the AWS account. | `string` | n/a | yes |
+| allowed\_prefixes | VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured. | `list(string)` | `[]` | no |
+| attachment | Create VPC Attachment to Transit Gateway | `bool` | `false` | no |
+| default\_route\_table\_association | Whether resource attachments are automatically associated with the default association route table. Valid values: disable, enable. Default value: enable. | `string` | `"enable"` | no |
+| default\_route\_table\_propagation | Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: disable, enable. Default value: enable. | `string` | `"enable"` | no |
+| direct\_connect\_gateway\_asn | The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. | `number` | n/a | yes |
+| dns\_support | Whether DNS support is enabled. Valid values: disable, enable. Default value: enable. | `string` | `"enable"` | no |
+| dx\_connection | The name of the connection to retrieve. | `list(any)` | `[]` | no |
+| name | Name prefix for the resources of this stack | `string` | n/a | yes |
+| private\_network\_acl\_id | Private Network ACL ID | `string` | n/a | yes |
+| private\_route | Private Destination CIDR blocks for NACL definition | `list(any)` | n/a | yes |
+| private\_route\_table\_id | Private Route Table Identifier | `string` | n/a | yes |
+| public\_network\_acl\_id | Public Network ACL ID | `string` | n/a | yes |
+| public\_route | Public Destination CIDR blocks for NACL definition | `list(any)` | n/a | yes |
+| public\_route\_table\_id | Public Route Table Identifier | `string` | n/a | yes |
+| secure\_network\_acl\_id | Secure Network ACL ID | `string` | n/a | yes |
+| secure\_route | Secure Destination CIDR blocks for NACL definition | `list(any)` | n/a | yes |
+| secure\_route\_table\_id | Secure Route Table Identifier | `string` | n/a | yes |
+| subnet\_ids | Identifiers of EC2 Subnets. | `list(any)` | `[]` | no |
+| tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
+| transit\_gateway\_account\_id | Identifier of the AWS account that owns the EC2 Transit Gateway. | `string` | n/a | yes |
+| transit\_gateway\_asn | Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. Default value: 64512. | `number` | `64512` | no |
+| transit\_gateway\_default\_route\_table\_association | Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: true. | `bool` | `true` | no |
+| transit\_gateway\_default\_route\_table\_propagation | Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: true. | `bool` | `true` | no |
+| transit\_gateway\_enabled | Enable or disable Transit Gateway | `bool` | n/a | yes |
+| vpc\_id | Identifier of EC2 VPC. | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| transit\_gateway\_attachment\_id | Transit Gateway route table secure ID |
+| transit\_gateway\_id | Transit Gateway Default ID |
+| transit\_gateway\_route\_table\_private\_id | Transit Gateway route table private ID |
+| transit\_gateway\_route\_table\_public\_id | Transit Gateway route table public ID |
+| transit\_gateway\_route\_table\_secure\_id | Transit Gateway route table secure ID |
 
 <!--- END_TF_DOCS --->
 
