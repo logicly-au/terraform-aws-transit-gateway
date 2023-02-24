@@ -54,7 +54,7 @@ module "transit_gateway" {
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12.0 |
-| aws | >= 3.56.0 |
+| aws | >= 4.4.0 |
 | random | >= 2.1.0 |
 | tls | >= 3.1.0 |
 
@@ -62,7 +62,7 @@ module "transit_gateway" {
 
 | Name | Version |
 |------|---------|
-| aws | >= 3.56.0 |
+| aws | >= 4.4.0 |
 
 ## Inputs
 
