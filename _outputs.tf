@@ -14,7 +14,7 @@ output "transit_gateway_account_owner_id" {
 }
 
 output "transit_gateway_cidr_blocks" {
-  value = var.transit_gateway_enabled ? aws_ec2_transit_gateway.default.*.transit_gateway_cidr_blocks : null
+  value = var.transit_gateway_enabled ? try(aws_ec2_transit_gateway.default.*.transit_gateway_cidr_blocks, []) : null
   description = "Transit Gateway CIDR blocks"
 }
 
