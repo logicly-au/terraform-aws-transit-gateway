@@ -1,0 +1,22 @@
+
+transit_gateway:
+  enabled: false
+  attachment:
+    enabled: true
+    transit_gateway_account_id: "12345678"
+    public_route: 
+      - cidr: "192.168.1.0/24" 
+        nacl_inbound_ephemeral_ports: false
+        nacl_outbound_ephemeral_ports: true
+        nacl_inbound_tcp_ports: [5432]   
+        nacl_outbound_tcp_ports: []
+    private_route:
+      - cidr: "192.168.1.0/24" 
+        nacl_inbound_tcp_ports: [0] # [22, 53, 80, 443, 5432, 636, 389]  
+        nacl_outbound_tcp_ports: [0]
+    secure_route:
+      - cidr: "192.168.1.0/24" 
+        nacl_inbound_ephemeral_ports: true
+        nacl_outbound_ephemeral_ports: true
+        nacl_inbound_tcp_ports: [5432]   
+        nacl_outbound_tcp_ports: [5432]
