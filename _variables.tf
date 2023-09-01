@@ -109,17 +109,32 @@ variable "account_name" {
 }
 
 variable "private_route" {
-  type        = list(any)
+  type = list(object({
+    cidr = string
+    protocol = optional(string, "tcp")
+    nacl_inbound_tcp_ports = list(number) 
+    nacl_outbound_tcp_ports = list(number)
+  }))
   description = "Private Destination CIDR blocks for NACL definition"
 }
 
 variable "public_route" {
-  type        = list(any)
+  type = list(object({
+    cidr = string
+    protocol = optional(string, "tcp")
+    nacl_inbound_tcp_ports = list(number) 
+    nacl_outbound_tcp_ports = list(number)
+  }))
   description = "Public Destination CIDR blocks for NACL definition"
 }
 
 variable "secure_route" {
-  type        = list(any)
+  type = list(object({
+    cidr = string
+    protocol = optional(string, "tcp")
+    nacl_inbound_tcp_ports = list(number) 
+    nacl_outbound_tcp_ports = list(number)
+  }))
   description = "Secure Destination CIDR blocks for NACL definition"
 }
 
