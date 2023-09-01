@@ -4,7 +4,7 @@ locals {
       for each_port in each_cidr.nacl_inbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 
@@ -13,7 +13,7 @@ locals {
       for each_port in each_cidr.nacl_outbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 
@@ -22,7 +22,7 @@ locals {
       for each_port in each_cidr.nacl_inbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 
@@ -31,7 +31,7 @@ locals {
       for each_port in each_cidr.nacl_outbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 
@@ -40,7 +40,7 @@ locals {
       for each_port in each_cidr.nacl_inbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 
@@ -49,7 +49,7 @@ locals {
       for each_port in each_cidr.nacl_outbound_tcp_ports : {
         cidr = each_cidr.cidr
         port = each_port
-        protocol = try(each.value.protocol, "tcp")
+        protocol = try(each_cidr.protocol, "tcp")
       }
   ]]))
 }
