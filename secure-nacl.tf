@@ -7,7 +7,7 @@ resource "aws_network_acl_rule" "secure_in_requester_from_accepter" {
   network_acl_id = var.secure_network_acl_id
   rule_number    = 1000 + index(local.secure_inbound_ports, each.value)
   egress         = false
-  protocol       = "tcp"
+  protocol       = each.value.protocol
   rule_action    = "allow"
   cidr_block     = each.value.cidr
   from_port      = each.value.port
@@ -23,7 +23,7 @@ resource "aws_network_acl_rule" "secure_out_requester_to_accepter" {
   network_acl_id = var.secure_network_acl_id
   rule_number    = 1000 + index(local.secure_outbound_ports, each.value)
   egress         = true
-  protocol       = "tcp"
+  protocol       = each.value.protocol
   rule_action    = "allow"
   cidr_block     = each.value.cidr
   from_port      = each.value.port
