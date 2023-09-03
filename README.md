@@ -84,7 +84,7 @@ module "transit_gateway" {
 | public\_route | Public Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>  }))</pre> | n/a | yes |
 | public\_route\_table\_id | Public Route Table Identifier | `string` | n/a | yes |
 | secure\_network\_acl\_id | Secure Network ACL ID | `string` | n/a | yes |
-| secure\_route | Secure Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>  }))</pre> | n/a | yes |
+| secure\_route | Secure Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>    nacl_inbound_ephemeral_ports = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
 | secure\_route\_table\_id | Secure Route Table Identifier | `string` | n/a | yes |
 | subnet\_ids | Identifiers of EC2 Subnets. | `list(any)` | `[]` | no |
 | tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
