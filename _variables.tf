@@ -134,6 +134,8 @@ variable "secure_route" {
     protocol = optional(string, "tcp")
     nacl_inbound_ports = list(number) 
     nacl_outbound_ports = list(number)
+    nacl_inbound_ephemeral_ports = bool
+    nacl_outbound_ephemeral_ports = bool
   }))
   description = "Secure Destination CIDR blocks for NACL definition"
 }
