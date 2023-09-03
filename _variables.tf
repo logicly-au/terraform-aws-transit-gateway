@@ -114,6 +114,8 @@ variable "private_route" {
     protocol = optional(string, "tcp")
     nacl_inbound_ports = list(number) 
     nacl_outbound_ports = list(number)
+    nacl_inbound_ephemeral_ports = optional(bool, false)
+    nacl_outbound_ephemeral_ports = optional(bool, false)
   }))
   description = "Private Destination CIDR blocks for NACL definition"
 }
@@ -124,6 +126,8 @@ variable "public_route" {
     protocol = optional(string, "tcp")
     nacl_inbound_ports = list(number) 
     nacl_outbound_ports = list(number)
+    nacl_inbound_ephemeral_ports = optional(bool, false)
+    nacl_outbound_ephemeral_ports = optional(bool, false)
   }))
   description = "Public Destination CIDR blocks for NACL definition"
 }
