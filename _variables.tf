@@ -48,6 +48,7 @@ variable "attachment" {
   default     = false
   description = "Create VPC Attachment to Transit Gateway"
 }
+
 variable "transit_gateway_default_route_table_association" {
   type        = bool
   default     = true
@@ -110,11 +111,11 @@ variable "account_name" {
 
 variable "private_route" {
   type = list(object({
-    cidr = string
-    protocol = optional(string, "tcp")
-    nacl_inbound_ports = list(number) 
-    nacl_outbound_ports = list(number)
-    nacl_inbound_ephemeral_ports = optional(bool, false)
+    cidr                          = string
+    protocol                      = optional(string, "tcp")
+    nacl_inbound_ports            = list(number)
+    nacl_outbound_ports           = list(number)
+    nacl_inbound_ephemeral_ports  = optional(bool, false)
     nacl_outbound_ephemeral_ports = optional(bool, false)
   }))
   description = "Private Destination CIDR blocks for NACL definition"
@@ -122,11 +123,11 @@ variable "private_route" {
 
 variable "public_route" {
   type = list(object({
-    cidr = string
-    protocol = optional(string, "tcp")
-    nacl_inbound_ports = list(number) 
-    nacl_outbound_ports = list(number)
-    nacl_inbound_ephemeral_ports = optional(bool, false)
+    cidr                          = string
+    protocol                      = optional(string, "tcp")
+    nacl_inbound_ports            = list(number)
+    nacl_outbound_ports           = list(number)
+    nacl_inbound_ephemeral_ports  = optional(bool, false)
     nacl_outbound_ephemeral_ports = optional(bool, false)
   }))
   description = "Public Destination CIDR blocks for NACL definition"
@@ -134,11 +135,11 @@ variable "public_route" {
 
 variable "secure_route" {
   type = list(object({
-    cidr = string
-    protocol = optional(string, "tcp")
-    nacl_inbound_ports = list(number) 
-    nacl_outbound_ports = list(number)
-    nacl_inbound_ephemeral_ports = optional(bool, false)
+    cidr                          = string
+    protocol                      = optional(string, "tcp")
+    nacl_inbound_ports            = list(number)
+    nacl_outbound_ports           = list(number)
+    nacl_inbound_ephemeral_ports  = optional(bool, false)
     nacl_outbound_ephemeral_ports = optional(bool, false)
   }))
   description = "Secure Destination CIDR blocks for NACL definition"
@@ -157,4 +158,10 @@ variable "public_network_acl_id" {
 variable "secure_network_acl_id" {
   type        = string
   description = "Secure Network ACL ID"
+}
+
+variable "ram_organization_association" {
+  type        = bool
+  default     = true
+  description = "Controls if a resource share of the transit gateway to AWS Organizations should be created."
 }
