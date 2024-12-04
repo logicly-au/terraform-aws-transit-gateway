@@ -21,7 +21,7 @@ resource "aws_ram_resource_association" "default" {
 }
 
 resource "aws_ram_principal_association" "default" {
-  count = var.transit_gateway_enabled ? 1 : 0
+  count = var.transit_gateway_enabled && var.ram_organization_association ? 1 : 0
 
   principal          = data.aws_organizations_organization.default.arn
   resource_share_arn = aws_ram_resource_share.default[0].arn
