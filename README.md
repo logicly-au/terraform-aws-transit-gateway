@@ -78,13 +78,14 @@ module "transit_gateway" {
 | dx\_connection | The name of the connection to retrieve. | `list(any)` | `[]` | no |
 | name | Name prefix for the resources of this stack | `string` | n/a | yes |
 | private\_network\_acl\_id | Private Network ACL ID | `string` | n/a | yes |
-| private\_route | Private Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>    nacl_inbound_ephemeral_ports = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
+| private\_route | Private Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr                          = string<br>    protocol                      = optional(string, "tcp")<br>    nacl_inbound_ports            = list(number)<br>    nacl_outbound_ports           = list(number)<br>    nacl_inbound_ephemeral_ports  = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
 | private\_route\_table\_id | Private Route Table Identifier | `string` | n/a | yes |
 | public\_network\_acl\_id | Public Network ACL ID | `string` | n/a | yes |
-| public\_route | Public Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>    nacl_inbound_ephemeral_ports = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
+| public\_route | Public Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr                          = string<br>    protocol                      = optional(string, "tcp")<br>    nacl_inbound_ports            = list(number)<br>    nacl_outbound_ports           = list(number)<br>    nacl_inbound_ephemeral_ports  = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
 | public\_route\_table\_id | Public Route Table Identifier | `string` | n/a | yes |
+| ram\_organization\_association | Controls if a resource share of the transit gateway to AWS Organizations should be created. | `bool` | `true` | no |
 | secure\_network\_acl\_id | Secure Network ACL ID | `string` | n/a | yes |
-| secure\_route | Secure Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr = string<br>    protocol = optional(string, "tcp")<br>    nacl_inbound_ports = list(number) <br>    nacl_outbound_ports = list(number)<br>    nacl_inbound_ephemeral_ports = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
+| secure\_route | Secure Destination CIDR blocks for NACL definition | <pre>list(object({<br>    cidr                          = string<br>    protocol                      = optional(string, "tcp")<br>    nacl_inbound_ports            = list(number)<br>    nacl_outbound_ports           = list(number)<br>    nacl_inbound_ephemeral_ports  = optional(bool, false)<br>    nacl_outbound_ephemeral_ports = optional(bool, false)<br>  }))</pre> | n/a | yes |
 | secure\_route\_table\_id | Secure Route Table Identifier | `string` | n/a | yes |
 | subnet\_ids | Identifiers of EC2 Subnets. | `list(any)` | `[]` | no |
 | tags | Extra tags to attach to resources | `map(string)` | `{}` | no |
